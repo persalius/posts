@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="74ae814d-f563-43a4-b14f-7cb44bffda23" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AddComment.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddComment.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Comment-Item.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Comment-Item.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Post.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Post.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/actions/comments.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/comments.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/reducers/posts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/posts.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +44,7 @@
       <updated>1582966148960</updated>
       <workItem from="1582966151887" duration="21281000" />
       <workItem from="1583003747806" duration="1663000" />
-      <workItem from="1583053100525" duration="11900000" />
+      <workItem from="1583053100525" duration="12204000" />
     </task>
     <servers />
   </component>

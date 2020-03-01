@@ -53,7 +53,7 @@ export default function(state = initialState, action: IAction): IState {
         case types.POST_CREATE:
             const newItem = action.payload.newPost;
             if (items.length) {
-                newItem["postId"] = items[items.length-1][action.payload.postId] + 1
+                newItem["postId"] = items[items.length-1].postId + 1;
             } else {
                 newItem["postId"] = 1;
             }
