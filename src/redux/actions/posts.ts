@@ -1,11 +1,11 @@
 import types from "../constants/posts";
 
 // ADD
-interface ICreatePost{
-    item: {
+interface ICreatePost {
+    newPost: {
         author: string,
-        name: string,
-        text: string
+        title: string,
+        content: string
     }
 }
 
@@ -18,7 +18,7 @@ export function post_create(payload: ICreatePost) {
 
 // REMOVE
 interface IDeletePost {
-    id: number
+    postId: number
 }
 
 export function post_delete(payload: IDeletePost) {

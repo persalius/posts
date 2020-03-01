@@ -4,9 +4,9 @@ import types from "../constants/comments";
 interface ICommentAdd {
     comment: {
         author: string,
-        text: string,
-        id: number
-    }
+        text: string
+    },
+    postId: number
 }
 
 export function comment_add(payload: ICommentAdd) {
@@ -29,7 +29,16 @@ export function comment_remove(payload: ICommentRemove) {
 }
 
 // EDIT
-export function comment_edit(payload: ICommentAdd) {
+interface ICommentEdit {
+    comment: {
+        commentId: number,
+        author: string,
+        text: string
+    },
+    postId: number
+}
+
+export function comment_edit(payload: ICommentEdit) {
     return {
         type: types.COMMENT_EDIT,
         payload

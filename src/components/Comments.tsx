@@ -12,7 +12,7 @@ const Comments: React.FC<IProps> = ({comments, postId}) => {
     return (
         <div className="comments">
             {
-                comments.map(comment => <CommentItem comment={comment} postId={postId} key={comment.author} />)
+                comments.map(comment => <CommentItem comment={comment} postId={postId} key={comment.commentId} />)
             }
 
             <style jsx>{styles}</style>

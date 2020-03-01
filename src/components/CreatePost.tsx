@@ -10,8 +10,8 @@ import {post_create} from "../redux/actions/posts";
 
 interface FormValues {
     author: string,
-    postName: string,
-    postContent: string
+    title: string,
+    content: string
 }
 
 interface IProps {
@@ -22,8 +22,8 @@ interface IProps {
 const ModalWindow: React.FC<IProps> = ({action, dispatch}) => {
     const initialValues: FormValues = {
         author: "",
-        postName: "",
-        postContent: ""
+        title: "",
+        content: ""
     };
 
     const formikSettings = {
@@ -33,10 +33,10 @@ const ModalWindow: React.FC<IProps> = ({action, dispatch}) => {
         onSubmit: (values) => {
             action();
             dispatch(post_create({
-                item: {
+                newPost: {
                     author: values.author,
-                    name: values.postName,
-                    text: values.postContent
+                    title: values.title,
+                    content: values.content
                 }
             }))
         }
@@ -59,12 +59,12 @@ const ModalWindow: React.FC<IProps> = ({action, dispatch}) => {
                                 />
                                 <Input
                                     label="Post title"
-                                    name="postName"
+                                    name="title"
                                     required
                                 />
                                 <TextArea
                                     label="Post content"
-                                    name="postContent"
+                                    name="content"
                                     type="textarea"
                                     required
                                 />

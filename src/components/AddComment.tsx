@@ -10,35 +10,34 @@ import {comment_add, comment_edit} from "../redux/actions/comments";
 
 interface FormValues {
     author: string,
-    comment: string
+    text: string
 }
-
-type actionType = "add" | "edit";
 
 interface IProps {
     dispatch: Function,
     postId: number,
+    commentId: number,
     closeWindow: () => void,
     title: string,
     type: "add" | "edit"
 }
 
-const AddComment: React.FC<IProps> = ({postId, closeWindow, title, type, dispatch}) => {
+const AddComment: React.FC<IProps> = ({postId, commentId, closeWindow, title, type, dispatch}) => {
     const initialValues: FormValues = {
         author: "",
-        comment: ""
+        text: ""
     };
 
     const handleSubmit = (values) => {
         const comment = {
             author: values.author,
-            text: values.comment,
-            id: postId
+            text: values.text
         };
+
         if (type === "add") {
-            dispatch(comment_add({comment}));
+            dispatch(comment_add({postId, comment}));
         } else {
-            dispatch(comment_edit({comment}));
+            dispatch(comment_edit({postId, comment: {...comment, commentId}}));
         }
         closeWindow();
     };
@@ -67,7 +66,7 @@ const AddComment: React.FC<IProps> = ({postId, closeWindow, title, type, dispatc
                                 />
                                 <TextArea
                                     label="Comment"
-                                    name="comment"
+                                    name="text"
                                     type="textarea"
                                     required
                                 />

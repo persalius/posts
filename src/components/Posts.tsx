@@ -13,7 +13,7 @@ const Posts: React.FC<IProps> = ({postsList}) => {
         <section className="posts">
             {
                 postsList.map(post => (
-                    <Post post={post} key={post.id} />
+                    <Post post={post} key={post.postId} />
                 ))
             }
         </section>

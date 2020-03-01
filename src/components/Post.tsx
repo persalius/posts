@@ -19,16 +19,16 @@ const Post: React.FC<IProps> = ({post, dispatch}) => {
     const deletePost = useCallback(() => {
         const confirmDelete = confirm("Do you want to delete this post");
         if (confirmDelete) {
-            dispatch(post_delete({id: post.id}))
+            dispatch(post_delete({postId: post.postId}))
         }
-        }, [post.id],
+        }, [post.postId],
     );
 
     return (
         <div className="post">
             <h2 className="post__author">{post.author}</h2>
-            <p className="post__name">{post.name}</p>
-            <p className="post__text">{post.text}</p>
+            <p className="post__name">{post.title}</p>
+            <p className="post__text">{post.content}</p>
             <div className="post__actions">
                 <Button
                     text="Delete post"
@@ -40,11 +40,11 @@ const Post: React.FC<IProps> = ({post, dispatch}) => {
                 />
             </div>
             {/* View comments */}
-            {post.comments && post.comments.length && <Comments comments={post.comments} postId={post.id} />}
+            {post.comments && post.comments.length && <Comments comments={post.comments} postId={post.postId} />}
             {/* View comment modal window */}
             {commentWindow &&
                 <AddComment
-                    postId={post.id}
+                    postId={post.postId}
                     closeWindow={() => setCommentWindow(false)}
                     title="Add new comment"
                     type="add"

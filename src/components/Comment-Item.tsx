@@ -28,6 +28,7 @@ const CommentItem: React.FC<IProps> = ({comment, postId}) => {
             {commentWindow &&
                 <AddComment
                     postId={postId}
+                    commentId={comment.commentId}
                     closeWindow={() => setCommentWindow(false)}
                     title="Edit comment"
                     type="edit"

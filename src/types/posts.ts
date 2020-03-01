@@ -1,14 +1,15 @@
 export type CommentType = {
+    commentId: number,
     author: string,
     text: string,
 }
 
 // @ts-ignore
 export type postType = {
-    id: number,
+    postId: number,
     author: string,
-    name: string,
-    text: string,
+    title: string,
+    content: string,
     comments?: Array<CommentType>
 };
 
