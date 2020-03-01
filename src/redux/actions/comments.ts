@@ -18,7 +18,8 @@ export function comment_add(payload: ICommentAdd) {
 
 // REMOVE
 interface ICommentRemove {
-    payload: {}
+    postId: number,
+    commentId: number
 }
 
 export function comment_remove(payload: ICommentRemove) {

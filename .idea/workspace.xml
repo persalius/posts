@@ -5,16 +5,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/AddComment.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddComment.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Comment-Item.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Comment-Item.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Comments.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Comments.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CreatePost.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CreatePost.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Post.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Post.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Posts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Posts.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/formikSchemas/comments.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/formikSchemas/comments.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/formikSchemas/createPost.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/formikSchemas/createPost.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/actions/comments.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/comments.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/actions/posts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/posts.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/reducers/posts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/posts.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/posts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/posts.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +48,7 @@
       <updated>1582966148960</updated>
       <workItem from="1582966151887" duration="21281000" />
       <workItem from="1583003747806" duration="1663000" />
-      <workItem from="1583053100525" duration="5112000" />
+      <workItem from="1583053100525" duration="11900000" />
     </task>
     <servers />
   </component>

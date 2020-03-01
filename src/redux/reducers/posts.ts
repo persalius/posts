@@ -15,6 +15,7 @@ interface IAction {
             author: string,
             text: string
         },
+        commentId?: number
     }
 }
 
@@ -56,10 +57,13 @@ export default function(state = initialState, action: IAction): IState {
             } else {
                 newItem["postId"] = 1;
             }
+            // @ts-ignore
+            newItem.comments = [];
             items.push(<postType>newItem);
             return {
                 items: [...items]
             };
+
         case types.POST_DELETE:
             for (let i = 0; i < items.length; i++) {
                 if (items[i].postId === action.payload.postId) {
@@ -75,7 +79,7 @@ export default function(state = initialState, action: IAction): IState {
             const newComment = action.payload.comment;
             for (let i = 0; i < items.length; i++) {
                 if (items[i].postId === action.payload.postId) {
-                    if (items[i].comments.length) {
+                    if (items[i].comments && items[i].comments.length) {
                         newComment["postId"] = items[items.length-1][action.payload.postId] + 1
                         items[i].comments.push({
                             commentId: items[i].comments[items[i].comments.length-1].commentId + 1,
@@ -83,6 +87,7 @@ export default function(state = initialState, action: IAction): IState {
                             text: action.payload.comment.text
                         });
                     } else {
+                        console.log("adsad");
                         items[i].comments.push({
                             commentId: 1,
                             author: action.payload.comment.author,
@@ -95,8 +100,50 @@ export default function(state = initialState, action: IAction): IState {
             }
             return {
                 items: [...items]
+            };
+
+        case types.COMMENT_EDIT:
+            for (let i = 0; i < items.length; i++) {
+                if (items[i].postId === action.payload.postId) {
+                    for (let j = 0; j < items[i].comments.length; j++) {
+                        if (items[i].comments[j].commentId === action.payload.comment.commentId) {
+                            items[i].comments[j].author = action.payload.comment.author;
+                            items[i].comments[j].text = action.payload.comment.text;
+                            break;
+                        }
+                    }
+                }
+            }
+            return {
+                items: [...items]
+            };
+
+        case types.COMMENT_REMOVE:
+            let newPostAfterDelete;
+            let positionPostAfeDelete: number;
+
+            for (let i = 0; i < items.length; i++) {
+                if (items[i].postId === action.payload.postId) {
+                    newPostAfterDelete = items[i];
+                    positionPostAfeDelete = i;
+                    break;
+                }
             }
 
+            for (let i = 0; i < newPostAfterDelete.comments.length; i++) {
+                if (newPostAfterDelete.comments[i].commentId === action.payload.commentId) {
+                    newPostAfterDelete.comments.splice(i, 1);
+                    break;
+                }
+            }
+
+            return {
+                items: [
+                    ...items.slice(0, positionPostAfeDelete),
+                    {...newPostAfterDelete},
+                    ...items.slice(positionPostAfeDelete + 1)
+                ]
+            };
         default:
             return state;
     }

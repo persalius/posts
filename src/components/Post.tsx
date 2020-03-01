@@ -40,7 +40,11 @@ const Post: React.FC<IProps> = ({post, dispatch}) => {
                 />
             </div>
             {/* View comments */}
-            {post.comments && post.comments.length && <Comments comments={post.comments} postId={post.postId} />}
+            {
+                post.comments && post.comments.length ?
+                    <Comments comments={post.comments} postId={post.postId} />
+                    : null
+            }
             {/* View comment modal window */}
             {commentWindow &&
                 <AddComment

@@ -7,6 +7,8 @@ import CommentsSchema from "../formikSchemas/comments";
 import styles from "../styles/components/modalWindow";
 // Actions
 import {comment_add, comment_edit} from "../redux/actions/comments";
+// Types
+import {CommentType} from "../types/posts";
 
 interface FormValues {
     author: string,
@@ -16,28 +18,28 @@ interface FormValues {
 interface IProps {
     dispatch: Function,
     postId: number,
-    commentId: number,
+    comment: CommentType,
     closeWindow: () => void,
     title: string,
     type: "add" | "edit"
 }
 
-const AddComment: React.FC<IProps> = ({postId, commentId, closeWindow, title, type, dispatch}) => {
+const AddComment: React.FC<IProps> = ({postId, comment, closeWindow, title, type, dispatch}) => {
     const initialValues: FormValues = {
-        author: "",
-        text: ""
+        author: type === "edit" ? comment.author : "",
+        text: type === "edit" ? comment.text : ""
     };
 
     const handleSubmit = (values) => {
-        const comment = {
+        const commentItem = {
             author: values.author,
             text: values.text
         };
 
         if (type === "add") {
-            dispatch(comment_add({postId, comment}));
+            dispatch(comment_add({postId, comment: commentItem}));
         } else {
-            dispatch(comment_edit({postId, comment: {...comment, commentId}}));
+            dispatch(comment_edit({postId, comment: {...commentItem, commentId: comment.commentId}}));
         }
         closeWindow();
     };

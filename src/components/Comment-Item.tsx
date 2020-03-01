@@ -1,14 +1,25 @@
-import React, {useState} from "react";
+import React, {useState, useCallback} from "react";
+import {connect} from "react-redux";
 import {CommentType} from "../types/posts";
 import AddComment from "./AddComment";
+// Actions
+import {comment_remove} from "../redux/actions/comments";
 
 interface IProps {
     comment: CommentType,
-    postId: number
+    postId: number,
+    dispatch: Function
 }
 
-const CommentItem: React.FC<IProps> = ({comment, postId}) => {
+const CommentItem: React.FC<IProps> = ({comment, postId, dispatch}) => {
     const [commentWindow, setCommentWindow] = useState<boolean>(false);
+
+    const deleteCommit = useCallback(() => {
+        const confirmDelete = confirm("Do you want to delete this comment");
+        if (confirmDelete) {
+            dispatch(comment_remove({postId, commentId: comment.commentId}));
+        }
+    }, [comment.commentId]);
 
     return (
         <div className="comment">
@@ -20,7 +31,7 @@ const CommentItem: React.FC<IProps> = ({comment, postId}) => {
                 <button className="comment__btn" onClick={() => setCommentWindow(true)}>
                     <img src="./images/icons/edit.svg" alt="edit"/>
                 </button>
-                <button className="comment__btn">
+                <button className="comment__btn" onClick={() => deleteCommit()}>
                     <img src="./images/icons/delete.svg" alt="edit"/>
                 </button>
             </div>
@@ -28,7 +39,7 @@ const CommentItem: React.FC<IProps> = ({comment, postId}) => {
             {commentWindow &&
                 <AddComment
                     postId={postId}
-                    commentId={comment.commentId}
+                    comment={comment}
                     closeWindow={() => setCommentWindow(false)}
                     title="Edit comment"
                     type="edit"
@@ -38,4 +49,4 @@ const CommentItem: React.FC<IProps> = ({comment, postId}) => {
     );
 };
 
-export default CommentItem;
+export default connect()(CommentItem);
