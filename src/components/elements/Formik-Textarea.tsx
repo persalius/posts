@@ -10,13 +10,13 @@ interface Props {
     type?: string
 }
 
-const Input:React.FC<Props> = ({ label, required, ...props }) => {
+const TextArea:React.FC<Props> = ({ label, required, ...props }) => {
     // @ts-ignore
     const [field, meta] = useField(props);
 
     return (
         <div className="input-block">
-            <input
+            <textarea
                 className={field.value ? "input not-empty" : "input"}
                 type="text"
                 {...field}
@@ -24,10 +24,10 @@ const Input:React.FC<Props> = ({ label, required, ...props }) => {
             />
 
             {   !props.placeholder &&
-                <label className="input-label">
-                    {label}
-                    {required ? <span> *</span> : null}
-                </label>
+            <label className="input-label">
+                {label}
+                {required ? <span> *</span> : null}
+            </label>
             }
 
             {meta.touched && meta.error ? (
@@ -39,4 +39,4 @@ const Input:React.FC<Props> = ({ label, required, ...props }) => {
     );
 };
 
-export default Input;
+export default TextArea;

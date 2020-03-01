@@ -1,12 +1,15 @@
 import types from "../constants/posts";
 
 // ADD
-interface IAddPost {
-    type: typeof types.POST_CREATE,
-    payload: {}
+interface ICreatePost{
+    item: {
+        author: string,
+        name: string,
+        text: string
+    }
 }
 
-export function post_create(payload: IAddPost) {
+export function post_create(payload: ICreatePost) {
     return {
         type: types.POST_CREATE,
         payload
@@ -15,8 +18,7 @@ export function post_create(payload: IAddPost) {
 
 // REMOVE
 interface IDeletePost {
-    type: typeof types.POST_DELETE,
-    payload: {}
+    id: number
 }
 
 export function post_delete(payload: IDeletePost) {

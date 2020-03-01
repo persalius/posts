@@ -2,12 +2,13 @@ import React from "react";
 import styles from "../styles/components/buttons";
 
 interface IProps {
-    text: string
+    text: string,
+    action: () => void
 }
 
-const Button: React.FC<IProps> = ({text}) => {
+const Button: React.FC<IProps> = ({text, action}) => {
     return (
-        <button className="button">
+        <button className="button" onClick={action}>
             {text}
             <style jsx>{styles}</style>
         </button>
